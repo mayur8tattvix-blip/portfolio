@@ -252,7 +252,12 @@ export const Contact: React.FC = () => {
 
                   <Button type="submit" size="lg" className="w-full group">
                     Send Message
-                    <Send className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
+                    <motion.div
+                      whileHover={{ x: 4, rotate: -15 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                    >
+                      <Send size={20} />
+                    </motion.div>
                   </Button>
                 </form>
               </Card>

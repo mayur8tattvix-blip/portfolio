@@ -64,10 +64,20 @@ export const Hero: React.FC = () => {
           >
             <Button size="lg" className="group">
               Get Started Today
-              <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
+              <motion.div
+                whileHover={{ x: 4 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              >
+                <ArrowRight size={20} />
+              </motion.div>
             </Button>
             <Button variant="outline" size="lg" className="group">
-              <Play className="mr-2 group-hover:scale-110 transition-transform" size={20} />
+              <motion.div
+                whileHover={{ scale: 1.2, rotate: 360 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              >
+                <Play size={20} />
+              </motion.div>
               View Our Work
             </Button>
           </motion.div>
