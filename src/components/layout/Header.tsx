@@ -30,7 +30,7 @@ export const Header: React.FC = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg"></div>
+            <img src="/tattvix_logo.png" alt="Tattvix Solutions" className="w-8 h-8" />
             <span className="text-xl font-bold text-gray-900 dark:text-white">Tattvix</span>
           </Link>
 
