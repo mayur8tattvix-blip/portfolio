@@ -83,8 +83,10 @@ export const About: React.FC = () => {
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="h-80 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl opacity-20"
-            ></motion.div>
+              className="h-80 bg-gray-100 dark:bg-gray-700 rounded-2xl flex items-center justify-center p-8"
+            >
+              <img src="/tattvix_logo.png" alt="Tattvix Solutions" className="max-w-full max-h-full object-contain opacity-60" />
+            </motion.div>
           </div>
         </div>
       </section>

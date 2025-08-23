@@ -88,11 +88,9 @@ export const Team: React.FC = () => {
                 transition={{ duration: 0.8, delay: index * 0.1 }}
               >
                 <Card className="h-full group cursor-pointer">
-                  {/* Profile Image Placeholder */}
-                  <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <span className="text-white text-2xl font-bold">
-                      {member.name.split(' ').map(n => n[0]).join('')}
-                    </span>
+                  {/* Profile Image */}
+                  <div className="w-24 h-24 mx-auto mb-6 bg-white dark:bg-gray-700 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 p-2">
+                    <img src="/tattvix_logo.png" alt="Tattvix Solutions" className="w-full h-full object-contain" />
                   </div>
 
                   <div className="text-center mb-6">
