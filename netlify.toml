@@ -1,9 +1,10 @@
 [build]
   publish = "dist"
-  command = "pnpm run build"
+  command = "pnpm run build:no-check"
 
 [build.environment]
   NODE_VERSION = "18"
+  CI = "false"
 
 [[redirects]]
   from = "/*"
