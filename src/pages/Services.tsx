@@ -15,6 +15,7 @@ export const Services: React.FC = () => {
       technologies: ['React', 'Vue.js', 'Angular', 'Node.js', 'Python', 'PHP', 'Java'],
       deliverables: ['Web Applications', 'Mobile Applications', 'API Development', 'Database Design', 'Third-party Integrations'],
       color: 'from-blue-500 to-blue-600',
+      image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=400&fit=crop'
     },
     {
       icon: Brain,
@@ -23,6 +24,7 @@ export const Services: React.FC = () => {
       technologies: ['TensorFlow', 'PyTorch', 'Scikit-learn', 'OpenAI', 'Computer Vision', 'NLP'],
       deliverables: ['Chatbots', 'Predictive Analytics', 'Recommendation Systems', 'Process Automation', 'Image Recognition'],
       color: 'from-purple-500 to-purple-600',
+      image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop'
     },
     {
       icon: Cloud,
@@ -31,6 +33,7 @@ export const Services: React.FC = () => {
       technologies: ['AWS', 'Azure', 'Google Cloud', 'Docker', 'Kubernetes', 'Terraform'],
       deliverables: ['Cloud Migration', 'Architecture Design', 'DevOps & CI/CD', 'Security Implementation', 'Cost Optimization'],
       color: 'from-green-500 to-green-600',
+      image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop'
     },
     {
       icon: Palette,
@@ -39,6 +42,7 @@ export const Services: React.FC = () => {
       technologies: ['Figma', 'Adobe Creative Suite', 'Sketch', 'InVision', 'Miro'],
       deliverables: ['User Research', 'Wireframing', 'Visual Design', 'Prototyping', 'Design Systems'],
       color: 'from-orange-500 to-orange-600',
+      image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop'
     },
   ];
 
@@ -117,7 +121,13 @@ export const Services: React.FC = () => {
                 </div>
                 
                 <div className="flex-1">
-                  <div className={`h-80 rounded-2xl bg-gradient-to-br ${service.color} opacity-20`}></div>
+                  <div className="h-80 rounded-2xl overflow-hidden shadow-lg">
+                    <img 
+                      src={service.image} 
+                      alt={service.title}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
                 </div>
               </motion.div>
             ))}

@@ -9,49 +9,54 @@ export const Team: React.FC = () => {
 
   const teamMembers = [
     {
-      name: 'Senior Software Architect',
+      name: 'Alex Thompson',
       role: 'Co-Founder & Technical Lead',
       experience: '6+ Years Experience',
       description: 'Leading our technical vision with expertise in full-stack development, cloud architecture, and AI integration.',
       expertise: ['Full-Stack Development', 'Cloud Architecture', 'AI/ML Implementation', 'System Design', 'Team Leadership'],
       education: 'B.Tech in Computer Science',
       certifications: ['AWS Solutions Architect', 'Azure Developer Associate'],
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face'
     },
     {
-      name: 'Business Analyst',
+      name: 'Sarah Mitchell',
       role: 'Co-Founder & Strategy Lead',
       experience: 'Business Strategy Specialist',
       description: 'Bridges the gap between business needs and technical solutions with expertise in requirement gathering and process optimization.',
       expertise: ['Business Analysis', 'Project Management', 'Process Optimization', 'Stakeholder Management', 'Strategic Planning'],
       education: 'MBA, B.Tech',
       certifications: ['Certified Business Analysis Professional (CBAP)', 'Scrum Master'],
+      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face'
     },
     {
-      name: 'Senior Software Developer',
+      name: 'Michael Rodriguez',
       role: 'Full-Stack Development Specialist',
       experience: '4+ Years Experience',
       description: 'Passionate about creating robust, scalable applications with clean code and optimal performance.',
       expertise: ['Frontend Development', 'Backend Development', 'Database Design', 'API Development', 'DevOps & CI/CD'],
       education: 'B.Tech in Computer Science',
       certifications: ['React Certified Developer', 'Node.js Professional'],
+      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face'
     },
     {
-      name: 'Python Specialist',
+      name: 'Priya Sharma',
       role: 'AI/ML & Backend Expert',
       experience: 'AI/ML Development Focus',
       description: 'Specialized in Python development with focus on AI/ML applications, data processing, and backend services.',
       expertise: ['Python Development', 'Machine Learning & AI', 'Data Processing', 'API Development', 'Database Integration'],
       education: 'B.Tech in Computer Science',
       certifications: ['Python Institute Certified', 'TensorFlow Developer'],
+      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=face'
     },
     {
-      name: 'UI/UX Designer',
+      name: 'Emma Johnson',
       role: 'Design & User Experience Specialist',
       experience: '3+ Years Experience',
       description: 'Creates intuitive, engaging user experiences that convert visitors into customers.',
       expertise: ['UI/UX Design', 'Figma & Design Tools', 'User Research', 'Prototyping', 'Design Systems'],
       education: "Bachelor's in Design",
       certifications: ['Google UX Design Certificate', 'Adobe Certified Expert'],
+      image: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=200&h=200&fit=crop&crop=face'
     },
   ];
 
@@ -89,8 +94,8 @@ export const Team: React.FC = () => {
               >
                 <Card className="h-full group cursor-pointer">
                   {/* Profile Image */}
-                  <div className="w-24 h-24 mx-auto mb-6 bg-white dark:bg-gray-700 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 p-2">
-                    <img src="/tattvix_logo.png" alt="Tattvix Solutions" className="w-full h-full object-contain" />
+                  <div className="w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                    <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
                   </div>
 
                   <div className="text-center mb-6">
