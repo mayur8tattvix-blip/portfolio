@@ -7,6 +7,7 @@ import { Services } from './pages/Services';
 import { About } from './pages/About';
 import { Team } from './pages/Team';
 import { Blog } from './pages/Blog';
+import { BlogPost } from './pages/BlogPost';
 import { Contact } from './pages/Contact';
 import { NotFound } from './pages/NotFound';
 
@@ -38,6 +39,11 @@ function App() {
           <Route path="/blog" element={
             <Layout>
               <Blog />
+            </Layout>
+          } />
+          <Route path="/blog/:id" element={
+            <Layout>
+              <BlogPost />
             </Layout>
           } />
           <Route path="/contact" element={

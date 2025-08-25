@@ -93,7 +93,7 @@ export const Testimonials: React.FC = () => {
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 className="w-80 flex-shrink-0"
               >
-                <Card className="h-full relative">
+                <Card className="h-full relative flex flex-col">
                   <Quote className="absolute top-4 right-4 text-blue-200 dark:text-blue-800" size={32} />
                   
                   <div className="flex mb-4">
@@ -102,11 +102,11 @@ export const Testimonials: React.FC = () => {
                     ))}
                   </div>
 
-                  <blockquote className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+                  <blockquote className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6 flex-grow">
                     "{testimonial.quote}"
                   </blockquote>
 
-                  <div className="border-t border-gray-200 dark:border-gray-700 pt-4 flex items-center space-x-3">
+                  <div className="border-t border-gray-200 dark:border-gray-700 pt-4 flex items-center space-x-3 mt-auto">
                     <img 
                       src={testimonial.image} 
                       alt={testimonial.author}

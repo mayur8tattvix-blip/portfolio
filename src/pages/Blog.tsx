@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, User, Clock, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Card } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
@@ -10,31 +11,34 @@ export const Blog: React.FC = () => {
 
   const blogPosts = [
     {
+      id: 1,
       title: 'The Future of AI in Small Business: 5 Game-Changing Applications',
       excerpt: 'Artificial Intelligence is no longer just for tech giants. Small and medium businesses are increasingly leveraging AI to automate processes, improve customer experience, and gain competitive advantages.',
       author: 'Tech Team',
       date: '2024-01-15',
       readTime: '8 min read',
       category: 'AI & Machine Learning',
-      image: 'ai-business',
+      image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=300&fit=crop',
     },
     {
+      id: 2,
       title: 'Cloud Migration Strategy: A Complete Guide for Indian Businesses',
       excerpt: 'Cloud migration is no longer optional—it\'s essential for business competitiveness. This comprehensive guide covers everything Indian businesses need to know about migrating to the cloud successfully.',
       author: 'Cloud Architect',
       date: '2024-01-10',
       readTime: '12 min read',
       category: 'Cloud Computing',
-      image: 'cloud-migration',
+      image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=300&fit=crop',
     },
     {
+      id: 3,
       title: 'Python Best Practices for Enterprise Applications: Lessons from the Field',
       excerpt: 'Python has become the go-to language for enterprise applications, from web services to AI/ML systems. However, building enterprise-grade Python applications requires following specific best practices.',
       author: 'Python Specialist',
       date: '2024-01-05',
       readTime: '10 min read',
       category: 'Development',
-      image: 'python-enterprise',
+      image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=300&fit=crop',
     },
   ];
 
@@ -84,11 +88,13 @@ export const Blog: React.FC = () => {
                 transition={{ duration: 0.8, delay: index * 0.1 }}
               >
                 <Card className="h-full group cursor-pointer">
-                  {/* Image Placeholder */}
-                  <div className="h-48 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg mb-6 flex items-center justify-center group-hover:scale-105 transition-transform duration-300 overflow-hidden">
-                    <span className="text-white text-sm font-medium px-4 py-2 bg-black/20 rounded">
-                      {post.image}
-                    </span>
+                  {/* Blog Image */}
+                  <div className="h-48 rounded-lg mb-6 overflow-hidden">
+                    <img 
+                      src={post.image} 
+                      alt={post.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
                   </div>
 
                   {/* Category */}
@@ -127,10 +133,17 @@ export const Blog: React.FC = () => {
                   </div>
 
                   {/* Read More Button */}
-                  <Button variant="outline" className="w-full group">
-                    Read More
-                    <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={16} />
-                  </Button>
+                  <Link to={`/blog/${post.id}`}>
+                    <Button variant="outline" className="w-full group">
+                      Read More
+                      <motion.div
+                        whileHover={{ x: 4 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                      >
+                        <ArrowRight size={16} />
+                      </motion.div>
+                    </Button>
+                  </Link>
                 </Card>
               </motion.div>
             ))}
