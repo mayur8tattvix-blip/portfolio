@@ -4,6 +4,7 @@ import { ThemeProvider } from './context/ThemeContext';
 import { Layout } from './components/layout/Layout';
 import { Home } from './pages/Home';
 import { Services } from './pages/Services';
+import { Portfolio } from './pages/Portfolio';
 import { About } from './pages/About';
 import { Team } from './pages/Team';
 import { Blog } from './pages/Blog';
@@ -24,6 +25,11 @@ function App() {
           <Route path="/services" element={
             <Layout>
               <Services />
+            </Layout>
+          } />
+          <Route path="/portfolio" element={
+            <Layout>
+              <Portfolio />
             </Layout>
           } />
           <Route path="/about" element={
