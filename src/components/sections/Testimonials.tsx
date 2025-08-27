@@ -84,14 +84,21 @@ export const Testimonials: React.FC = () => {
         </motion.div>
 
         <div className="overflow-x-auto pb-4">
-          <div className="flex space-x-6 w-max">
+          <motion.div 
+            className="flex space-x-6 w-max"
+            drag="x"
+            dragConstraints={{ left: -1000, right: 0 }}
+            dragElastic={0.1}
+          >
             {testimonials.map((testimonial, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, x: 30 }}
-                animate={isVisible ? { opacity: 1, x: 0 } : {}}
+                initial={{ opacity: 0, x: 30, rotateY: -15 }}
+                animate={isVisible ? { opacity: 1, x: 0, rotateY: 0 } : {}}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
+                whileHover={{ rotateY: 5, scale: 1.02 }}
                 className="w-80 flex-shrink-0"
+                style={{ perspective: '1000px' }}
               >
                 <Card className="h-full relative flex flex-col">
                   <Quote className="absolute top-4 right-4 text-blue-200 dark:text-blue-800" size={32} />
@@ -124,7 +131,7 @@ export const Testimonials: React.FC = () => {
                 </Card>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

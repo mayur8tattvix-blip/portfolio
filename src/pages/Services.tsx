@@ -121,13 +121,28 @@ export const Services: React.FC = () => {
                 </div>
                 
                 <div className="flex-1">
-                  <div className="h-80 rounded-2xl overflow-hidden shadow-lg">
+                  <motion.div 
+                    className="h-80 rounded-2xl overflow-hidden shadow-lg relative group"
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  >
                     <img 
                       src={service.image} 
                       alt={service.title}
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
-                  </div>
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      initial={false}
+                    />
+                    <motion.div
+                      className="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      initial={false}
+                    >
+                      <h4 className="font-bold text-lg mb-2">{service.title}</h4>
+                      <p className="text-sm">Hover to explore our expertise</p>
+                    </motion.div>
+                  </motion.div>
                 </div>
               </motion.div>
             ))}

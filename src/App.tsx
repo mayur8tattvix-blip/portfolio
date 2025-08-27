@@ -2,6 +2,10 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 import { Layout } from './components/layout/Layout';
+import { ScrollToTopOnRouteChange } from './components/ui/ScrollToTopOnRouteChange';
+import { ScrollToTop } from './components/ui/ScrollToTop';
+import { MouseFollower } from './components/ui/MouseFollower';
+import { ProgressBar } from './components/ui/ProgressBar';
 import { Home } from './pages/Home';
 import { Services } from './pages/Services';
 import { Portfolio } from './pages/Portfolio';
@@ -16,6 +20,9 @@ function App() {
   return (
     <ThemeProvider>
       <Router>
+        <ScrollToTopOnRouteChange />
+        <ProgressBar />
+        <MouseFollower />
         <Routes>
           <Route path="/" element={
             <Layout>
@@ -59,6 +66,7 @@ function App() {
           } />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <ScrollToTop />
       </Router>
     </ThemeProvider>
   );
