@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Menu, X, Moon, Sun } from 'lucide-react';
+import { Menu, X, Moon, Sun, Github, Linkedin, Twitter } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 
 export const Header: React.FC = () => {
@@ -14,9 +14,14 @@ export const Header: React.FC = () => {
     { name: 'Services', href: '/services' },
     { name: 'Portfolio', href: '/portfolio' },
     { name: 'About', href: '/about' },
-    { name: 'Team', href: '/team' },
     { name: 'Blog', href: '/blog' },
     { name: 'Contact', href: '/contact' },
+  ];
+
+  const socialLinks = [
+    { icon: Github, href: 'https://github.com/tattvixsolutions', label: 'GitHub' },
+    { icon: Linkedin, href: 'https://linkedin.com/company/tattvixsolutions', label: 'LinkedIn' },
+    { icon: Twitter, href: 'https://twitter.com/tattvixsolutions', label: 'Twitter' },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -52,8 +57,24 @@ export const Header: React.FC = () => {
             ))}
           </nav>
 
-          {/* Theme Toggle & Mobile Menu */}
+          {/* Social Icons, Theme Toggle & Mobile Menu */}
           <div className="flex items-center space-x-4">
+            {/* Social Icons - Hidden on mobile */}
+            <div className="hidden md:flex items-center space-x-2">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                  aria-label={social.label}
+                >
+                  <social.icon size={18} />
+                </a>
+              ))}
+            </div>
+
             <button
               onClick={toggleTheme}
               className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"

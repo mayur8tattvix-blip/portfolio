@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Code, Brain, Cloud, Palette, CheckCircle } from 'lucide-react';
+import { Code, Brain, Cloud, Palette, CheckCircle, Users } from 'lucide-react';
 import { Card } from '../components/ui/Card';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
@@ -43,6 +43,24 @@ export const Services: React.FC = () => {
       deliverables: ['User Research', 'Wireframing', 'Visual Design', 'Prototyping', 'Design Systems'],
       color: 'from-orange-500 to-orange-600',
       image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop'
+    },
+    {
+      icon: Brain,
+      title: 'Fintech & Accounting Solutions',
+      description: 'Specialized financial technology solutions including payment gateways, accounting software, compliance management, and blockchain-based financial services.',
+      technologies: ['Blockchain', 'Payment APIs', 'QuickBooks', 'Stripe', 'Plaid', 'React'],
+      deliverables: ['Payment Integration', 'Financial Dashboards', 'Compliance Tools', 'Audit Systems', 'Mobile Banking'],
+      color: 'from-emerald-500 to-emerald-600',
+      image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop'
+    },
+    {
+      icon: Users,
+      title: 'Staff Augmentation',
+      description: 'Scale your development team with our skilled professionals. We provide dedicated developers, designers, and technical specialists to accelerate your projects.',
+      technologies: ['Remote Teams', 'Agile', 'Scrum', 'DevOps', 'Full-Stack', 'Specialized Skills'],
+      deliverables: ['Dedicated Developers', 'Project Teams', 'Technical Consultants', 'Long-term Partnerships', 'Skill-based Hiring'],
+      color: 'from-indigo-500 to-indigo-600',
+      image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop'
     },
   ];
 

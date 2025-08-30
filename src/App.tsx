@@ -9,6 +9,7 @@ import { ProgressBar } from './components/ui/ProgressBar';
 import { Home } from './pages/Home';
 import { Services } from './pages/Services';
 import { Portfolio } from './pages/Portfolio';
+import { PortfolioDetail } from './pages/PortfolioDetail';
 import { About } from './pages/About';
 import { Team } from './pages/Team';
 import { Blog } from './pages/Blog';
@@ -37,6 +38,11 @@ function App() {
           <Route path="/portfolio" element={
             <Layout>
               <Portfolio />
+            </Layout>
+          } />
+          <Route path="/portfolio/:id" element={
+            <Layout>
+              <PortfolioDetail />
             </Layout>
           } />
           <Route path="/about" element={

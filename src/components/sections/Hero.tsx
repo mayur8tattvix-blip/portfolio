@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Play, Sparkles } from 'lucide-react';
 import { Button } from '../ui/Button';
-import { ParallaxSection } from '../ui/ParallaxSection';
+import { AnimatedCounter } from '../ui/AnimatedCounter';
 
 export const Hero: React.FC = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -160,14 +160,18 @@ export const Hero: React.FC = () => {
             className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16"
           >
             {[
-              { number: '50+', label: 'Projects Delivered' },
-              { number: '25+', label: 'Happy Clients' },
-              { number: '4+', label: 'Years Experience' },
-              { number: '100%', label: 'Client Satisfaction' },
+              { number: 50, suffix: '+', label: 'Projects Delivered' },
+              { number: 25, suffix: '+', label: 'Happy Clients' },
+              { number: 4, suffix: '+', label: 'Years Experience' },
+              { number: 100, suffix: '%', label: 'Client Satisfaction' },
             ].map((stat, index) => (
               <div key={index} className="text-center">
                 <div className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
-                  {stat.number}
+                  <AnimatedCounter 
+                    end={stat.number} 
+                    suffix={stat.suffix}
+                    duration={2 + index * 0.2}
+                  />
                 </div>
                 <div className="text-gray-600 dark:text-gray-400 mt-1">
                   {stat.label}
