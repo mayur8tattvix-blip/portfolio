@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, ChevronLeft, ChevronRight, Calendar, Users, Code, Zap } from 'lucide-react';
+import { ArrowLeft, ChevronLeft, ChevronRight, Users, Code, Zap } from 'lucide-react';
 import { Link, useParams } from 'react-router-dom';
 import { Card } from '../components/ui/Card';
 import { AnimatedBanner } from '../components/ui/AnimatedBanner';
@@ -165,9 +165,24 @@ export const PortfolioDetail: React.FC = () => {
                       <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
                         Project Overview
                       </h2>
-                      <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
-                        {project.shortDescription}
-                      </p>
+                      <div className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                        <p className="text-lg mb-6">{project.shortDescription}</p>
+                        
+                        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Key Project Highlights:</h3>
+                        <ul className="space-y-3">
+                          {project.projectHighlights ? project.projectHighlights.map((highlight, index) => (
+                            <li key={index} className="flex items-start space-x-3">
+                              <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                              <span>{highlight}</span>
+                            </li>
+                          )) : (
+                            <li className="flex items-start space-x-3">
+                              <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                              <span>Comprehensive project implementation with modern development practices and scalable architecture</span>
+                            </li>
+                          )}
+                        </ul>
+                      </div>
                     </motion.div>
                   )}
 
@@ -241,14 +256,6 @@ export const PortfolioDetail: React.FC = () => {
                 </h3>
                 
                 <div className="space-y-4">
-                  <div className="flex items-center space-x-3">
-                    <Calendar className="text-blue-600 flex-shrink-0" size={20} />
-                    <div>
-                      <p className="text-gray-900 dark:text-white font-medium">Duration</p>
-                      <p className="text-gray-600 dark:text-gray-300 text-sm">{project.duration}</p>
-                    </div>
-                  </div>
-                  
                   <div className="flex items-center space-x-3">
                     <Users className="text-blue-600 flex-shrink-0" size={20} />
                     <div>

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Clock, Send } from 'lucide-react';
 import { Card } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
+import { AnimatedBanner } from '../components/ui/AnimatedBanner';
 
 export const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -32,24 +33,10 @@ export const Contact: React.FC = () => {
 
   return (
     <div className="pt-20 pb-20">
-      {/* Header */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-              Get In Touch
-            </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Ready to transform your business with cutting-edge technology solutions? 
-              We'd love to hear about your project and discuss how we can help you achieve your goals.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <AnimatedBanner
+        title="Get In Touch"
+        subtitle="Ready to transform your business with cutting-edge technology solutions? Connect with our expert team to discuss innovative solutions tailored to your unique challenges and goals."
+      />
 
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Code, Brain, Cloud, Palette, CheckCircle, Users } from 'lucide-react';
 import { Card } from '../components/ui/Card';
+import { AnimatedBanner } from '../components/ui/AnimatedBanner';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 export const Services: React.FC = () => {
@@ -66,25 +67,10 @@ export const Services: React.FC = () => {
 
   return (
     <div className="pt-20 pb-20">
-      {/* Header */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-              Our Services
-            </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              At Tattvix Solutions, we combine technical excellence with business acumen to deliver 
-              solutions that drive real results. Our comprehensive service portfolio covers the entire 
-              software development lifecycle.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <AnimatedBanner
+        title="Our Services"
+        subtitle="Transforming businesses through innovative technology solutions. From AI-powered applications to cloud infrastructure, we deliver comprehensive services that drive measurable results and accelerate digital transformation."
+      />
 
       {/* Services Detail */}
       <section ref={ref} className="py-20">

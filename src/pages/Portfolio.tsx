@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Calendar, Users, Code, Zap } from 'lucide-react';
 import { Card } from '../components/ui/Card';
+import { AnimatedBanner } from '../components/ui/AnimatedBanner';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import projectsData from '../data/projects.json';
 
@@ -21,24 +22,10 @@ export const Portfolio: React.FC = () => {
 
   return (
     <div className="pt-20 pb-20">
-      {/* Header */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-              Our Portfolio
-            </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Showcasing our expertise through successful projects that have transformed businesses 
-              and delivered measurable results for our clients.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <AnimatedBanner
+        title="Our Portfolio"
+        subtitle="Showcasing excellence through innovative solutions. Explore our comprehensive collection of successful projects that have transformed businesses, delivered exceptional results, and pushed the boundaries of technology."
+      />
 
       {/* Featured Projects */}
       <section className="py-20">

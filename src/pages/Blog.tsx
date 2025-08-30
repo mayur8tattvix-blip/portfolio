@@ -4,6 +4,7 @@ import { Calendar, User, Clock, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Card } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
+import { AnimatedBanner } from '../components/ui/AnimatedBanner';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 export const Blog: React.FC = () => {
@@ -44,23 +45,10 @@ export const Blog: React.FC = () => {
 
   return (
     <div className="pt-20 pb-20">
-      {/* Header */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-              Technical Blog
-            </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Insights, tutorials, and best practices from our team of technology experts
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <AnimatedBanner
+        title="Technical Blog"
+        subtitle="Insights, innovations, and expertise from our technology leaders. Discover cutting-edge trends, best practices, and deep technical knowledge that drives successful digital transformation."
+      />
 
       {/* Featured Articles */}
       <section ref={ref} className="py-20">
