@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { ArrowRight, Play, Sparkles } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { AnimatedCounter } from '../ui/AnimatedCounter';
@@ -108,48 +109,52 @@ export const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Button size="lg" className="group relative overflow-hidden">
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  initial={false}
-                />
-                <span className="relative z-10 flex items-center">
-                  <Sparkles className="mr-2" size={20} />
-                  Get Started Today
+            <Link to="/contact">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Button size="lg" className="group relative overflow-hidden">
                   <motion.div
-                    whileHover={{ x: 4 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                    className="ml-2"
-                  >
-                    <ArrowRight size={20} />
-                  </motion.div>
-                </span>
-              </Button>
-            </motion.div>
+                    className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    initial={false}
+                  />
+                  <span className="relative z-10 flex items-center">
+                    <Sparkles className="mr-2" size={20} />
+                    Get Started Today
+                    <motion.div
+                      whileHover={{ x: 4 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                      className="ml-2"
+                    >
+                      <ArrowRight size={20} />
+                    </motion.div>
+                  </span>
+                </Button>
+              </motion.div>
+            </Link>
             
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Button variant="outline" size="lg" className="group relative">
-                <motion.div
-                  whileHover={{ scale: 1.2, rotate: 360 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                  className="mr-2"
-                >
-                  <Play size={20} />
-                </motion.div>
-                View Our Work
-                <motion.div
-                  className="absolute inset-0 border-2 border-blue-600 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"
-                  initial={false}
-                />
-              </Button>
-            </motion.div>
+            <Link to="/portfolio">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Button variant="outline" size="lg" className="group relative">
+                  <motion.div
+                    whileHover={{ scale: 1.2, rotate: 360 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                    className="mr-2"
+                  >
+                    <Play size={20} />
+                  </motion.div>
+                  View Our Work
+                  <motion.div
+                    className="absolute inset-0 border-2 border-blue-600 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"
+                    initial={false}
+                  />
+                </Button>
+              </motion.div>
+            </Link>
           </motion.div>
 
           {/* Key metrics */}
@@ -170,7 +175,7 @@ export const Hero: React.FC = () => {
                   <AnimatedCounter 
                     end={stat.number} 
                     suffix={stat.suffix}
-                    duration={2 + index * 0.2}
+                    duration={4 * 0.5}
                   />
                 </div>
                 <div className="text-gray-600 dark:text-gray-400 mt-1">

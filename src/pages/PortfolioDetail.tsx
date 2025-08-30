@@ -1,53 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ChevronLeft, ChevronRight, Calendar, Users, Code, Zap } from 'lucide-react';
 import { Link, useParams } from 'react-router-dom';
 import { Card } from '../components/ui/Card';
-import { Button } from '../components/ui/Button';
 import { AnimatedBanner } from '../components/ui/AnimatedBanner';
+import projectsData from '../data/projects.json';
 
 export const PortfolioDetail: React.FC = () => {
   const { id } = useParams();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [activeSection, setActiveSection] = useState('description');
 
-  const projectDetails = {
-    '1': {
-      title: 'E-Commerce Platform with AI Recommendations',
-      category: 'Web Development',
-      description: 'A comprehensive e-commerce solution featuring AI-powered product recommendations, real-time inventory management, and seamless payment integration. Built with modern technologies to deliver exceptional user experience and drive business growth.',
-      client: 'RetailTech Solutions',
-      duration: '4 months',
-      team: '5 developers',
-      technologies: ['React', 'Node.js', 'MongoDB', 'TensorFlow', 'Stripe', 'AWS'],
-      results: ['40% increase in sales', '60% better user engagement', '35% reduction in cart abandonment'],
-      images: [
-        'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=500&fit=crop',
-        'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=500&fit=crop',
-        'https://images.unsplash.com/photo-1556742111-a301076d9d18?w=800&h=500&fit=crop',
-        'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=500&fit=crop&sat=-100',
-      ],
-      features: [
-        'AI-powered product recommendations',
-        'Real-time inventory management',
-        'Secure payment gateway integration',
-        'Advanced analytics dashboard',
-        'Mobile-responsive design',
-        'Multi-vendor support'
-      ],
-      challenges: [
-        'Implementing real-time inventory sync across multiple warehouses',
-        'Building scalable AI recommendation engine',
-        'Ensuring PCI DSS compliance for payment processing'
-      ],
-      solutions: [
-        'Developed microservices architecture for better scalability',
-        'Implemented machine learning algorithms for personalized recommendations',
-        'Used Redis for real-time data caching and synchronization'
-      ]
-    }
-  };
+  const project = projectsData.find(p => p.id === parseInt(id || '0'));
 
-  const project = projectDetails[id as keyof typeof projectDetails];
+  useEffect(() => {
+    if (!isAutoPlaying || !project) return;
+    
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % project.sliderImages.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [isAutoPlaying, project]);
 
   if (!project) {
     return (
@@ -59,11 +34,15 @@ export const PortfolioDetail: React.FC = () => {
   }
 
   const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % project.images.length);
+    if (!project) return;
+    setCurrentImageIndex((prev) => (prev + 1) % project.sliderImages.length);
+    setIsAutoPlaying(false);
   };
 
   const prevImage = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + project.images.length) % project.images.length);
+    if (!project) return;
+    setCurrentImageIndex((prev) => (prev - 1 + project.sliderImages.length) % project.sliderImages.length);
+    setIsAutoPlaying(false);
   };
 
   return (
@@ -85,11 +64,15 @@ export const PortfolioDetail: React.FC = () => {
       <section className="py-12">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative">
-            <div className="relative h-96 md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+            <div 
+              className="relative h-96 md:h-[500px] rounded-2xl overflow-hidden shadow-2xl"
+              onMouseEnter={() => setIsAutoPlaying(false)}
+              onMouseLeave={() => setIsAutoPlaying(true)}
+            >
               <AnimatePresence mode="wait">
                 <motion.img
                   key={currentImageIndex}
-                  src={project.images[currentImageIndex]}
+                  src={project.sliderImages[currentImageIndex]}
                   alt={`${project.title} - Screenshot ${currentImageIndex + 1}`}
                   className="w-full h-full object-cover"
                   initial={{ opacity: 0, x: 300 }}
@@ -117,10 +100,13 @@ export const PortfolioDetail: React.FC = () => {
             
             {/* Thumbnail Navigation */}
             <div className="flex justify-center mt-6 space-x-3">
-              {project.images.map((image, index) => (
+              {project.sliderImages.map((image, index) => (
                 <button
                   key={index}
-                  onClick={() => setCurrentImageIndex(index)}
+                  onClick={() => {
+                    setCurrentImageIndex(index);
+                    setIsAutoPlaying(false);
+                  }}
                   className={`w-16 h-16 rounded-lg overflow-hidden border-2 transition-all duration-300 ${
                     index === currentImageIndex
                       ? 'border-blue-600 scale-110'
@@ -145,74 +131,106 @@ export const PortfolioDetail: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Main Content */}
             <div className="lg:col-span-2">
+              {/* Interactive Section Tabs */}
+              <div className="flex space-x-4 mb-6">
+                {[
+                  { id: 'description', label: 'Short Description' },
+                  { id: 'features', label: 'Technical Features' },
+                  { id: 'technologies', label: 'Technologies' }
+                ].map((section) => (
+                  <button
+                    key={section.id}
+                    onClick={() => setActiveSection(section.id)}
+                    className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
+                      activeSection === section.id
+                        ? 'bg-blue-600 text-white shadow-lg'
+                        : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-600'
+                    }`}
+                  >
+                    {section.label}
+                  </button>
+                ))}
+              </div>
+
               <Card>
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-                  Project Overview
-                </h2>
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
-                  {project.description}
-                </p>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
-                      Key Features
-                    </h3>
-                    <ul className="space-y-2">
-                      {project.features.map((feature, index) => (
-                        <li key={index} className="flex items-center space-x-2">
-                          <Zap className="text-green-500 flex-shrink-0" size={16} />
-                          <span className="text-gray-600 dark:text-gray-300 text-sm">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
-                      Technologies Used
-                    </h3>
-                    <div className="flex flex-wrap gap-2">
-                      {project.technologies.map((tech, index) => (
-                        <span
-                          key={index}
-                          className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+                <AnimatePresence mode="wait">
+                  {activeSection === 'description' && (
+                    <motion.div
+                      key="description"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+                        Project Overview
+                      </h2>
+                      <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
+                        {project.shortDescription}
+                      </p>
+                    </motion.div>
+                  )}
+
+                  {activeSection === 'features' && (
+                    <motion.div
+                      key="features"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+                        Technical Features
+                      </h2>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {project.technicalFeatures.map((feature, index) => (
+                          <motion.div
+                            key={index}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.3, delay: index * 0.1 }}
+                            className="flex items-center space-x-3 p-3 bg-gray-50 dark:bg-gray-700 rounded-lg"
+                          >
+                            <Zap className="text-green-500 flex-shrink-0" size={20} />
+                            <span className="text-gray-700 dark:text-gray-300">{feature}</span>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+
+                  {activeSection === 'technologies' && (
+                    <motion.div
+                      key="technologies"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+                        Technologies Used
+                      </h2>
+                      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        {project.technologies.map((tech, index) => (
+                          <motion.div
+                            key={index}
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.3, delay: index * 0.1 }}
+                            className="p-4 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-lg text-center border border-blue-200 dark:border-blue-800"
+                          >
+                            <span className="font-semibold text-blue-700 dark:text-blue-300">
+                              {tech}
+                            </span>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </Card>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-                <Card>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
-                    Challenges
-                  </h3>
-                  <ul className="space-y-3">
-                    {project.challenges.map((challenge, index) => (
-                      <li key={index} className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                        • {challenge}
-                      </li>
-                    ))}
-                  </ul>
-                </Card>
-                
-                <Card>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
-                    Solutions
-                  </h3>
-                  <ul className="space-y-3">
-                    {project.solutions.map((solution, index) => (
-                      <li key={index} className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                        • {solution}
-                      </li>
-                    ))}
-                  </ul>
-                </Card>
-              </div>
+
             </div>
             
             {/* Sidebar */}

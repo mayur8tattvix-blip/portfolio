@@ -1,0 +1,210 @@
+[
+  {
+    "id": 1,
+    "title": "Multi-Store E-commerce Platform",
+    "category": "Web Development",
+    "client": "Retail Enterprise",
+    "duration": "6 months",
+    "team": "5 developers",
+    "role": "Lead Software Engineer",
+    "mainImage": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=500&fit=crop",
+    "sliderImages": [
+      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=500&fit=crop",
+      "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=500&fit=crop",
+      "https://images.unsplash.com/photo-1556742111-a301076d9d18?w=800&h=500&fit=crop",
+      "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=800&h=500&fit=crop"
+    ],
+    "shortDescription": "A robust MERN stack e-commerce web application developed for a prominent online retail brand with an extensive network of over 100 stores nationwide. Led development with focus on architectural excellence and scalable solutions.",
+    "technicalFeatures": [
+      "Full-stack e-commerce functionality",
+      "Multi-store management system (100+ stores)",
+      "Scalable architecture design",
+      "Robust backend infrastructure",
+      "User authentication and authorization",
+      "Product catalog management",
+      "Order processing system",
+      "Payment integration capabilities"
+    ],
+    "technologies": ["React.js", "Node.js", "Express.js", "MongoDB", "MERN Stack"],
+    "results": ["100+ stores managed", "Scalable architecture", "Robust payment system"],
+    "featured": true
+  },
+  {
+    "id": 2,
+    "title": "Enterprise Micro Frontend Platform",
+    "category": "Web Development",
+    "client": "Technology Corporation",
+    "duration": "8 months",
+    "team": "6 developers",
+    "role": "Software Consultant",
+    "mainImage": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop",
+    "sliderImages": [
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop",
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop",
+      "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=500&fit=crop",
+      "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=500&fit=crop"
+    ],
+    "shortDescription": "A sophisticated micro frontend project comprising multiple custom applications tailored for enterprise clients. Developed as Software Consultant specializing in Testing & Data Management Solutions with modular architecture approach.",
+    "technicalFeatures": [
+      "Micro frontend architecture",
+      "Multiple independent applications",
+      "Custom client solutions",
+      "Testing and data management capabilities",
+      "Independent deployment of modules",
+      "Scalable modular design",
+      "Client-specific customizations"
+    ],
+    "technologies": ["Micro Frontend", "Testing Frameworks", "Data Management", "Modular Architecture"],
+    "results": ["Multiple client solutions", "Independent deployments", "Scalable architecture"],
+    "featured": true
+  },
+  {
+    "id": 3,
+    "title": "Healthcare Management Platform",
+    "category": "Healthcare",
+    "client": "Healthcare Provider",
+    "duration": "10 months",
+    "team": "8 developers",
+    "role": "Full-Stack Developer",
+    "mainImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&h=500&fit=crop",
+    "sliderImages": [
+      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&h=500&fit=crop",
+      "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=500&fit=crop",
+      "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=800&h=500&fit=crop",
+      "https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=800&h=500&fit=crop"
+    ],
+    "shortDescription": "Comprehensive telemedicine solution designed to manage patient health while leveraging healthcare regulations. Enables remote patient monitoring management and reimbursement capabilities with full compliance standards.",
+    "technicalFeatures": [
+      "Patient health management system",
+      "Telemedicine consultation platform",
+      "Remote patient monitoring",
+      "Healthcare system integration",
+      "Reimbursement management",
+      "HIPAA compliance features",
+      "Real-time communication tools",
+      "Health data analytics"
+    ],
+    "technologies": ["Healthcare APIs", "System Integration", "HIPAA Compliance", "Real-time Communication"],
+    "results": ["HIPAA compliant", "System integration", "Remote monitoring"],
+    "featured": true
+  },
+  {
+    "id": 4,
+    "title": "Business Planning Platform",
+    "category": "Business Intelligence",
+    "client": "Technology Solutions",
+    "duration": "5 months",
+    "team": "4 developers",
+    "role": "Business Intelligence Developer",
+    "mainImage": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop",
+    "sliderImages": [
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop",
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop",
+      "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=500&fit=crop",
+      "https://images.unsplash.com/photo-1553484771-371a605b060b?w=800&h=500&fit=crop"
+    ],
+    "shortDescription": "A comprehensive business planning platform consisting of business planning tools and services designed to serve small and medium businesses. Developed with focus on strategic planning and performance analytics.",
+    "technicalFeatures": [
+      "Business planning tools suite",
+      "SMB-focused solutions",
+      "Planning templates and frameworks",
+      "Business analysis capabilities",
+      "Strategic planning modules",
+      "Performance tracking tools",
+      "Collaborative planning features"
+    ],
+    "technologies": ["Business Intelligence", "Data Visualization", "Planning Frameworks", "Analytics"],
+    "results": ["SMB-focused solutions", "Planning automation", "Performance tracking"],
+    "featured": false
+  },
+  {
+    "id": 5,
+    "title": "Healthcare Payment System",
+    "category": "Fintech",
+    "client": "Healthcare Services",
+    "duration": "4 months",
+    "team": "3 developers",
+    "role": "Frontend Developer",
+    "mainImage": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=500&fit=crop",
+    "sliderImages": [
+      "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=500&fit=crop",
+      "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=500&fit=crop",
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop",
+      "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=800&h=500&fit=crop"
+    ],
+    "shortDescription": "A comprehensive payment processing system that enables healthcare providers to be reimbursed for services provided to patients. Developed with focus on automated claims processing and financial management.",
+    "technicalFeatures": [
+      "Payment processing system",
+      "Provider reimbursement management",
+      "Healthcare system integration",
+      "Service tracking and reporting",
+      "Financial transaction management",
+      "Claims processing automation",
+      "Provider dashboard",
+      "Patient service coordination"
+    ],
+    "technologies": ["Payment Gateways", "Frontend Development", "Financial APIs", "Dashboard UI"],
+    "results": ["Automated reimbursements", "Streamlined payments", "Provider efficiency"],
+    "featured": false
+  },
+  {
+    "id": 6,
+    "title": "Universal Email Interface",
+    "category": "Web Development",
+    "client": "Internal Project",
+    "duration": "2 months",
+    "team": "2 developers",
+    "role": "Full-Stack Developer",
+    "mainImage": "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=500&fit=crop",
+    "sliderImages": [
+      "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=500&fit=crop",
+      "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=500&fit=crop",
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop",
+      "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=500&fit=crop"
+    ],
+    "shortDescription": "A simplistic and universal interface designed to access emails with a focus on accessibility for diverse user groups. Features secure OAuth2 authentication for reliable email access across multiple platforms.",
+    "technicalFeatures": [
+      "Universal email interface",
+      "Accessibility-focused design",
+      "Cross-platform compatibility",
+      "Secure authentication system",
+      "User-friendly navigation",
+      "Email management tools",
+      "Responsive design",
+      "Multi-email provider support"
+    ],
+    "technologies": ["OAuth2", "Accessibility APIs", "Email APIs", "Responsive Design"],
+    "results": ["Universal accessibility", "Secure authentication", "Cross-platform support"],
+    "featured": false
+  },
+  {
+    "id": 8,
+    "title": "Real-time Chat Application",
+    "category": "Web Development",
+    "client": "Internal Project",
+    "duration": "2 months",
+    "team": "2 developers",
+    "role": "Full-Stack Developer",
+    "mainImage": "https://images.unsplash.com/photo-1577563908411-5077b6dc7624?w=800&h=500&fit=crop",
+    "sliderImages": [
+      "https://images.unsplash.com/photo-1577563908411-5077b6dc7624?w=800&h=500&fit=crop",
+      "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=800&h=500&fit=crop",
+      "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=500&fit=crop",
+      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=500&fit=crop"
+    ],
+    "shortDescription": "A simple peer-to-peer chat application that facilitates real-time text message transmission over web sockets with user authentication and direct messaging capabilities.",
+    "technicalFeatures": [
+      "Real-time messaging",
+      "Peer-to-peer communication",
+      "User authentication system",
+      "WebSocket implementation",
+      "Direct messaging",
+      "User registration and login",
+      "Message history",
+      "Online status tracking"
+    ],
+    "technologies": ["WebSockets", "Socket.io", "Real-time Communication", "User Authentication"],
+    "results": ["Real-time messaging", "P2P communication", "User authentication"],
+    "featured": false
+  }
+]

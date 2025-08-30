@@ -1,109 +1,17 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ExternalLink, Github, Calendar, Users, Code, Zap } from 'lucide-react';
+import { Calendar, Users, Code, Zap } from 'lucide-react';
 import { Card } from '../components/ui/Card';
-import { Button } from '../components/ui/Button';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import projectsData from '../data/projects.json';
 
 export const Portfolio: React.FC = () => {
   const { ref, isVisible } = useScrollAnimation();
   const [activeFilter, setActiveFilter] = useState('All');
 
-  const categories = ['All', 'Web Development', 'Mobile Apps', 'AI/ML', 'Cloud Solutions', 'UI/UX Design'];
-
-  const projects = [
-    {
-      id: 1,
-      title: 'E-Commerce Platform with AI Recommendations',
-      category: 'Web Development',
-      description: 'Full-stack e-commerce solution with AI-powered product recommendations, real-time inventory management, and integrated payment gateway.',
-      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop',
-      technologies: ['React', 'Node.js', 'MongoDB', 'TensorFlow', 'Stripe'],
-      client: 'RetailTech Solutions',
-      duration: '4 months',
-      team: '5 developers',
-      results: ['40% increase in sales', '60% better user engagement', '35% reduction in cart abandonment'],
-      liveUrl: '#',
-      githubUrl: '#',
-      featured: true
-    },
-    {
-      id: 2,
-      title: 'Healthcare Management System',
-      category: 'Web Development',
-      description: 'Comprehensive healthcare management platform with patient records, appointment scheduling, and telemedicine capabilities.',
-      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=600&h=400&fit=crop',
-      technologies: ['Vue.js', 'Python', 'PostgreSQL', 'WebRTC', 'AWS'],
-      client: 'MedCare Hospitals',
-      duration: '6 months',
-      team: '7 developers',
-      results: ['50% faster patient processing', '90% reduction in paperwork', '24/7 telemedicine availability'],
-      liveUrl: '#',
-      githubUrl: '#',
-      featured: true
-    },
-    {
-      id: 3,
-      title: 'Smart Inventory Mobile App',
-      category: 'Mobile Apps',
-      description: 'Cross-platform mobile application for inventory management with barcode scanning, real-time sync, and analytics dashboard.',
-      image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop',
-      technologies: ['React Native', 'Firebase', 'Node.js', 'Chart.js'],
-      client: 'LogiFlow Inc.',
-      duration: '3 months',
-      team: '4 developers',
-      results: ['70% faster inventory tracking', '85% reduction in stock errors', 'Real-time multi-location sync'],
-      liveUrl: '#',
-      githubUrl: '#',
-      featured: false
-    },
-    {
-      id: 4,
-      title: 'AI-Powered Customer Support Chatbot',
-      category: 'AI/ML',
-      description: 'Intelligent chatbot with natural language processing, sentiment analysis, and seamless human handoff capabilities.',
-      image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop',
-      technologies: ['Python', 'TensorFlow', 'OpenAI GPT', 'React', 'WebSocket'],
-      client: 'ServicePro Ltd.',
-      duration: '2 months',
-      team: '3 developers',
-      results: ['80% query resolution rate', '60% reduction in response time', '95% customer satisfaction'],
-      liveUrl: '#',
-      githubUrl: '#',
-      featured: true
-    },
-    {
-      id: 5,
-      title: 'Cloud Infrastructure Migration',
-      category: 'Cloud Solutions',
-      description: 'Complete migration of legacy systems to AWS cloud with auto-scaling, monitoring, and disaster recovery setup.',
-      image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop',
-      technologies: ['AWS', 'Docker', 'Kubernetes', 'Terraform', 'CloudWatch'],
-      client: 'TechCorp Industries',
-      duration: '5 months',
-      team: '6 developers',
-      results: ['65% cost reduction', '99.9% uptime achieved', '3x faster deployment'],
-      liveUrl: '#',
-      githubUrl: '#',
-      featured: false
-    },
-    {
-      id: 6,
-      title: 'Modern Banking App UI/UX',
-      category: 'UI/UX Design',
-      description: 'Complete redesign of mobile banking application with focus on accessibility, security, and user experience.',
-      image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop',
-      technologies: ['Figma', 'React Native', 'Framer Motion', 'TypeScript'],
-      client: 'SecureBank',
-      duration: '3 months',
-      team: '3 designers',
-      results: ['200% increase in app usage', '45% faster transaction completion', '4.8/5 user rating'],
-      liveUrl: '#',
-      githubUrl: '#',
-      featured: false
-    }
-  ];
+  const projects = projectsData;
+  const categories = ['All', ...new Set(projects.map(p => p.category))];
 
   const filteredProjects = activeFilter === 'All' 
     ? projects 
@@ -160,13 +68,17 @@ export const Portfolio: React.FC = () => {
                 <Card className="overflow-hidden group">
                   <div className="relative h-64 overflow-hidden">
                     <img 
-                      src={project.image} 
+                      src={project.mainImage} 
                       alt={project.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="absolute bottom-4 left-4 right-4 text-center">
-                        <p className="text-white text-sm font-medium">View Project Details</p>
+                      <div className="absolute bottom-4 left-4 right-4 flex justify-center">
+                        <Link to={`/portfolio/${project.id}`}>
+                          <button className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors duration-300">
+                            View Project Details
+                          </button>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -183,7 +95,7 @@ export const Portfolio: React.FC = () => {
                     </h3>
                     
                     <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
-                      {project.description}
+                      {project.shortDescription}
                     </p>
                     
                     <div className="flex flex-wrap gap-2 mb-4">
@@ -284,7 +196,7 @@ export const Portfolio: React.FC = () => {
                   <Card className="h-full group cursor-pointer">
                   <div className="relative h-48 overflow-hidden rounded-lg mb-4">
                     <img 
-                      src={project.image} 
+                      src={project.mainImage} 
                       alt={project.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
@@ -308,7 +220,7 @@ export const Portfolio: React.FC = () => {
                   </h3>
                   
                   <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 leading-relaxed">
-                    {project.description.substring(0, 120)}...
+                    {project.shortDescription.substring(0, 120)}...
                   </p>
                   
                   <div className="flex flex-wrap gap-1 mb-4">

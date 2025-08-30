@@ -399,7 +399,23 @@ const securityConfig = {
                 <Clock size={16} className="text-blue-600 dark:text-blue-400" />
                 <span>{post.readTime}</span>
               </div>
-              <Button variant="outline" size="sm" className="ml-auto">
+              <Button 
+                variant="outline" 
+                size="sm" 
+                className="ml-auto"
+                onClick={() => {
+                  if (navigator.share) {
+                    navigator.share({
+                      title: post.title,
+                      text: post.shortDescription,
+                      url: window.location.href,
+                    });
+                  } else {
+                    navigator.clipboard.writeText(window.location.href);
+                    alert('Article link copied to clipboard!');
+                  }
+                }}
+              >
                 <Share2 size={16} className="mr-2" />
                 Share Article
               </Button>

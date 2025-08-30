@@ -181,22 +181,7 @@ export const About: React.FC = () => {
                 ))}
               </ul>
             </div>
-            <Card>
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
-                Get In Touch
-              </h3>
-              <div className="space-y-2 text-gray-600 dark:text-gray-300">
-                <p>Ready to transform your business with innovative technology solutions?</p>
-                <p className="mt-4">
-                  <strong>Working Hours:</strong><br />
-                  Monday - Friday: 9:00 AM - 7:00 PM IST
-                </p>
-                <p className="mt-4">
-                  <strong>Email:</strong> hello@tattvixsolutions.com<br />
-                  <strong>Phone:</strong> +91-XXX-XXX-XXXX
-                </p>
-              </div>
-            </Card>
+
           </div>
         </div>
       </section>
