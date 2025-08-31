@@ -161,7 +161,7 @@ export const Hero: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            transition={{ duration: 0.3, delay: 0.2 }}
             className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16"
           >
             {[
