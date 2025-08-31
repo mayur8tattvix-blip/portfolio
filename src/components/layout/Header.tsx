@@ -20,7 +20,7 @@ export const Header: React.FC = () => {
 
   const socialLinks = [
     { icon: Github, href: 'https://github.com/tattvixsolutions', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://linkedin.com/company/tattvixsolutions', label: 'LinkedIn' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/company/tattvix/about/?viewAsMember=true', label: 'LinkedIn' },
     { icon: Twitter, href: 'https://twitter.com/tattvixsolutions', label: 'Twitter' },
   ];
 
