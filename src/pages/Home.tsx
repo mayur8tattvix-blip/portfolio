@@ -1,6 +1,7 @@
 import React from 'react';
 import { Hero } from '../components/sections/Hero';
 import { ServicesOverview } from '../components/sections/ServicesOverview';
+import { FeaturedProjects } from '../components/sections/FeaturedProjects';
 import { Testimonials } from '../components/sections/Testimonials';
 
 export const Home: React.FC = () => {
@@ -8,6 +9,7 @@ export const Home: React.FC = () => {
     <>
       <Hero />
       <ServicesOverview />
+      <FeaturedProjects />
       <Testimonials />
     </>
   );

@@ -197,7 +197,7 @@ export const Testimonials: React.FC = () => {
           </div>
           
           {/* Dots Indicator */}
-          <div className="flex justify-center mt-8 space-x-2">
+          {/* <div className="flex justify-center mt-8 space-x-2">
             {testimonials.map((_, index) => {
               const isActive = Math.floor(index / itemsPerView) === currentIndex;
               const shouldShow = index % itemsPerView === 0;
@@ -219,7 +219,7 @@ export const Testimonials: React.FC = () => {
                 />
               );
             })}
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Calendar, Users, Code, Zap } from 'lucide-react';
+import { Users, Code, Zap } from 'lucide-react';
 import { Card } from '../components/ui/Card';
 import { AnimatedBanner } from '../components/ui/AnimatedBanner';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
@@ -102,10 +102,10 @@ export const Portfolio: React.FC = () => {
                     </div>
                     
                     <div className="grid grid-cols-3 gap-4 text-sm text-gray-500 dark:text-gray-400 mb-4">
-                      <div className="flex items-center space-x-1">
+                      {/* <div className="flex items-center space-x-1">
                         <Calendar size={14} />
                         <span>{project.duration}</span>
-                      </div>
+                      </div> */}
                       <div className="flex items-center space-x-1">
                         <Users size={14} />
                         <span>{project.team}</span>
@@ -223,7 +223,7 @@ export const Portfolio: React.FC = () => {
                   
                   <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
                     <span>{project.client}</span>
-                    <span>{project.duration}</span>
+                    {/* <span>{project.duration}</span> */}
                   </div>
                   </Card>
                 </Link>
